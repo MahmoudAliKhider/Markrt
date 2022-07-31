@@ -4,13 +4,15 @@ import { AllProductsComponent } from './components/all-products/all-products.com
 import { ProductsDetalisComponent } from './components/products-detalis/products-detalis.component';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClient } from '@angular/common/http';
+import { ProductComponent } from './components/product/product.component';
 
 
 
 @NgModule({
   declarations: [
     AllProductsComponent,
-    ProductsDetalisComponent
+    ProductsDetalisComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
