@@ -1,12 +1,10 @@
 <div class="box ">
-  <div class="my-2 w-25">
+  <div class="my-2 w-25"  >
     <label for="" class="my-1">Categories</label>
-    <select class="form-control">
-        <option value="1">option 1</option>
-        <option value="2">option 2</option>
-        <option value="3">option 3</option>
-        <option value="4">option 4</option>
-        <option value="5">option 5</option>
+    <select class="form-control" (change)="filterCategory($event)">
+        <option selected value="all">All</option>
+        <option value="{{option}}" *ngFor="let option of categories">{{option}}</option>
+      
 
     </select>
 

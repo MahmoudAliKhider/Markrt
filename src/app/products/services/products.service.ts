@@ -11,4 +11,11 @@ export class ProductsService {
   getAllProducts(){
      return this.http.get(environment.baseApi+'products');
   }
+  getAllCategoris(){
+    return this.http.get(environment.baseApi+'products/categories');
+
+  }
+  getProductsByCatrgory(keyword:string){
+    return this.http.get(environment.baseApi+'products/category/'+keyword);
+ }
 }
