@@ -23,12 +23,11 @@ import { SelectComponent } from './components/select/select.component';
     HttpClientModule,
     RouterModule,
     
-    
-   
   ],
   exports:[
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SelectComponent
     
   ]
 })
