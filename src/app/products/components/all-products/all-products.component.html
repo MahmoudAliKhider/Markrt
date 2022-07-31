@@ -10,7 +10,7 @@
 
   </div>
 
-    <div class="row">
+    <div class="row" *ngIf="!loading">
         <div class="col-md-3 col-sm-12" *ngFor="let i of products">
             <div class="item">
                 <img src="{{i.image}}" alt="">
@@ -28,5 +28,9 @@
     
         </div>
     </div>
+    <div class="text-center w-100" *ngIf="loading">
+     <app-spinner></app-spinner>
+    </div>
     
 </div>
+

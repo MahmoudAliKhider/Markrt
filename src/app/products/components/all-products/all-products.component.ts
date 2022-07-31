@@ -9,6 +9,7 @@ import { ProductsService } from '../../services/products.service';
 export class AllProductsComponent implements OnInit {
 products:any[]=[];
 categories:any[]=[];
+ loading:boolean=false;
   constructor(private service:ProductsService) { }
 
   ngOnInit(): void {
@@ -17,17 +18,23 @@ categories:any[]=[];
   }
 
   getProduct(){
+    this.loading=true;
     this.service.getAllProducts().subscribe((res:any)=>{
     this.products=res;
+    this.loading=false;
     },error=>{
+      this.loading=false;
       alert("error")
     })
   }
   getCategories(){
+    this.loading=true;
     this.service.getAllCategoris().subscribe((res:any)=>{
     this.categories=res;
+    this.loading=false;
   },error=>{
-    alert("error")
+    alert("error");
+    this.loading=false;
   })
   }
   filterCategory(event:any){
@@ -39,10 +46,10 @@ categories:any[]=[];
     }
   }
   getProductCategory(keyword:string){
+    this.loading=true;
     this.service.getProductsByCatrgory(keyword).subscribe((res:any)=>{
       this.products=res;
-    },error=>{
-      alert("error")
+      this.loading=false;
     })
   }
 }
