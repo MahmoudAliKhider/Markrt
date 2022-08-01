@@ -32,9 +32,9 @@ h4{
     font-weight: 600;
     margin-top: 10px;
 }
-/* .row :hover{
+.item:hover{
  transform: scale(1.1);
- }  */
+ } 
 span{
     background-color: #f1b4b4;
     padding: 3px 7px;
