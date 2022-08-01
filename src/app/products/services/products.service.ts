@@ -18,4 +18,7 @@ export class ProductsService {
   getProductsByCatrgory(keyword:string){
     return this.http.get(environment.baseApi+'products/category/'+keyword);
  }
+ getProductsById(id:any){
+  return this.http.get(environment.baseApi+'products/'+id);
+}
 }
