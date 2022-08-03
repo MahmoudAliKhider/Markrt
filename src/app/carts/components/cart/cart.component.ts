@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartsService } from '../../services/carts.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
   
-  constructor() { }
+  constructor(private service:CartsService) { }
   cartproduct:any[]=[]
   total:any=0;
+  success:boolean=false;
   ngOnInit(): void {
     this.getCartProduct()
   }
@@ -53,6 +55,24 @@ export class CartComponent implements OnInit {
     this.cartproduct=[]
     this.getTotal()
     localStorage.setItem("cart",JSON.stringify(this.cartproduct))
+  }
+
+  /////////
+  addCart(){
+  let products = this.cartproduct.map(item=>{
+   return {productId:item.item.id, quantity:item.quantity}
+  })
+
+    let Model={
+      userId:5,
+      date:new Date(),
+      products:products
+
+    }
+    this.service.createNewCart(Model).subscribe(res=>{
+      this.success=true
+    })
+    console.log(Model)
   }
 
 }

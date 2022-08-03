@@ -40,7 +40,8 @@ span{
 }
 span:hover{
     background-color: #e67779;
-    color:#fff;
+    color:rgb(113, 108, 108);
+    
     box-shadow: 0px 5px 10px rgb(#e67779, #000000,);
 }
 header tr{
