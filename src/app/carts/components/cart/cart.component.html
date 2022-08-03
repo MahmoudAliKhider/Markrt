@@ -18,15 +18,15 @@
         </header>
 
         <tbody>
-            <tr *ngFor="let item of cartproduct">
+            <tr *ngFor="let item of cartproduct;let index=index">
                 <td><img src="{{item.item.image}}" alt=""></td>
                 <td>{{item.item.title}}</td>
                 <td>{{item.item.price}}</td>
                 <td>
                     <div class="quantity">
-                        <button class="btn btn-dark">+</button>
-                        <input type="number" class="form-control" [(ngModel)]="item.quantity">
-                         <button class="btn btn-dark">-</button>  
+                        <button class="btn btn-dark" (click)="addAmount(index)">+</button>
+                        <input type="number" class="form-control" (change)="detectChange()" [(ngModel)]="item.quantity">
+                         <button class="btn btn-dark" (click)="minsAmount(index)">-</button>  
                           
                     </div>
                 </td>
